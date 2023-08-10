@@ -32,6 +32,50 @@ const questions = ({ title, description, installation, usage, license, badges, e
     - Email: ${email}
     - GitHub: ${github}`
 
+    inquire
+        .createPromptModule([
+            {
+                type: 'input',
+                name: 'title',
+                message: 'What is the name of your project?',
+            },
+            {
+                type: 'input',
+                name: 'description',
+                message: 'Provide a description explaining the what, why and how of your project?',
+            },
+            {
+                type: 'input',
+                name: 'installation',
+                message: 'What steps are required to install this project?',
+            },
+            {
+                type: 'input',
+                name: 'usage',
+                message: 'Provide instructions and examples for use?',
+            },
+            {
+                type: 'input',
+                name: 'license',
+                message: 'What license did you use?',
+            },
+            {
+                type: 'input',
+                name: 'badges',
+                message: 'Do you have any badges?',
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: 'What is your email?',
+            },
+            {
+                type: 'input',
+                name: 'github',
+                message: 'What is your github link?',
+            },
+        ])
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
