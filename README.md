@@ -20,12 +20,12 @@ This project is licensed under the terms of the [LICENSE NAME] license.
 
 
 
-## Questions
+## Contact Information
 
 If you have any questions or need assistance with this project, you can reach me through the following methods:
 
-- Email: [Your Email Address]
-- GitHub: [Your GitHub Username]
+- Email: 
+- GitHub: 
 
 
 
