@@ -33,7 +33,7 @@ const questions = ({ title, description, installation, usage, license, badges, e
     - GitHub: ${github}`
 
     inquire
-        .createPromptModule([
+        .prompt([
             {
                 type: 'input',
                 name: 'title',
@@ -77,10 +77,18 @@ const questions = ({ title, description, installation, usage, license, badges, e
         ])
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+// function init() {}
 
 // Function call to initialize app
-init();
+// init();
+
+.then((answers) => {
+    const fileQuestions = questions(answers);
+
+    fs.writeFile('readme.md', fileQuestions, (err) =>
+    err ? console.log(err) : console.log('Successfully created readme.md!')
+    );
+});
