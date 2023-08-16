@@ -1,9 +1,15 @@
-// TODO: Include packages needed for this application
 const inquire = require('inquirer');
 const fs = require('fs');
-// TODO: Create an array of questions for user input
-const questions = ({ title, description, installation, usage, license, badges, email, github }) =>
+
+const questions = ({ title, description, installation, usage, license, email, github }) =>
     `# ${title}
+
+    ![Github license](https://img.shields.io/badge/License-${license}-green.svg)
+
+    ## Table of Contents
+    -[Description](#description)
+
+
 
     ## Description
     ${description}
@@ -19,10 +25,7 @@ const questions = ({ title, description, installation, usage, license, badges, e
     
     ## License
     
-    This project is licensed under the terms of the ${license}.
-    
-    ## Badges
-    ${badges}
+    This project is licensed under the terms of the ${license} 
     
     
     ## Contact Information
@@ -55,9 +58,10 @@ const questions = ({ title, description, installation, usage, license, badges, e
                 message: 'Provide instructions and examples for use?',
             },
             {
-                type: 'input',
+                type: 'list',
                 name: 'license',
                 message: 'What license did you use?',
+                choices: ['MIT', 'ISC', 'SIL', 'Unlicensed', 'EPL'],
             },
             {
                 type: 'input',
@@ -76,18 +80,10 @@ const questions = ({ title, description, installation, usage, license, badges, e
             },
         ])
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-// function init() {}
-
-// Function call to initialize app
-// init();
 
 .then((answers) => {
     const fileQuestions = questions(answers);
-
+console.log(fileQuestions);
     fs.writeFile('readme.md', fileQuestions, (err) =>
     err ? console.log(err) : console.log('Successfully created readme.md!')
     );
